@@ -1,0 +1,16 @@
+Day 3 -- Cloud Build CI/CD
+
+Done:
+- CloudBuild YAML Syntax: Wrote a cloudbuild.yaml file that builds the app image, pushes it to Artifact Registry, and deploys it to Cloud Run.
+- GitHub Integration: Connected our GitHub repo to Cloud Build so it can watch for new code.
+- Build Automation: Set up a trigger so every push to the main branch auto-builds and auto-deploys the app. Tested with a real push -- it worked and deployed successfully.
+
+Not done:
+- Cloud Build Introduction: Write-up task, not requested.
+- HTTPS & SSL on GCP: Write-up task, not requested.
+- Cloud Armor Overview: Write-up task, not requested.
+
+Links:
+- GitHub repo: https://github.com/vaishalijain3456/gcp-react-docker
+- Cloud Run service: cloud-run-node-demo (asia-south1)
+- Artifact Registry repo: asia-south1-docker.pkg.dev/let-try-demo-gcp/cloud-run-repo

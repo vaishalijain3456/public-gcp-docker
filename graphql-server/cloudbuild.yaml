@@ -1,0 +1,69 @@
+# Day 12 -- This file tells Cloud Build what to do with the backend:
+# build it, TEST it for real, then push and deploy it. This is not
+# connected to a live trigger yet -- it was only built and tested on our
+# own computer (see Day-12/outcomes.txt for why deploy is on hold).
+substitutions:
+  _REGION: asia-south1
+  _REPO: cloud-run-repo
+  _SERVICE: graphql-server-backend
+  _IMAGE: asia-south1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}
+  # Day 11 -- this is a placeholder website address. We will change it to
+  # the real frontend address once that is online (Day 12).
+  _CORS_ORIGIN: "*"
+
+steps:
+  # Day 12 -- Step 1: build the container image from our code.
+  - name: "gcr.io/cloud-builders/docker"
+    dir: "graphql-server"
+    args: ["build", "-t", "${_IMAGE}:${SHORT_SHA}", "-t", "${_IMAGE}:latest", "."]
+
+  # Day 12 -- Step 2 (the real test): start the image we just built and
+  # ask it a real question. If we don't get a good answer back, the whole
+  # build stops here -- so a broken image never gets pushed or deployed.
+  - id: "start-smoke-test-container"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["run", "-d", "--name", "graphql-smoke-test", "--network", "cloudbuild", "${_IMAGE}:${SHORT_SHA}"]
+
+  - id: "smoke-test-query"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        sleep 3
+        docker run --rm --network cloudbuild curlimages/curl:8.11.1 \
+          -sf -X POST http://graphql-smoke-test:4000/graphql \
+          -H "Content-Type: application/json" \
+          -d '{"query":"{ users { id } }"}' | grep -q '"users"'
+
+  # Day 12 -- clean up the test container now that the test is done.
+  - id: "stop-smoke-test-container"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["rm", "-f", "graphql-smoke-test"]
+
+  # Day 12 -- Step 3: upload the image to Artifact Registry. We only get
+  # here if the test above passed.
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "${_IMAGE}:${SHORT_SHA}"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "${_IMAGE}:latest"]
+
+  # Day 12 -- Step 4: put the new image online on Cloud Run.
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - "${_SERVICE}"
+      - "--image=${_IMAGE}:${SHORT_SHA}"
+      - "--region=${_REGION}"
+      - "--platform=managed"
+      - "--set-env-vars=CORS_ORIGIN=${_CORS_ORIGIN}"
+      - "--quiet"
+
+images:
+  - "${_IMAGE}:${SHORT_SHA}"
+  - "${_IMAGE}:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

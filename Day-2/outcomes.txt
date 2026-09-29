@@ -1,0 +1,18 @@
+Day 2 -- IAM, Service Accounts & Compute Platforms
+
+Done:
+- IAM Roles & Permissions: Checked who has access to the project, then gave a test account only "view storage files" access -- not full control.
+- Service Accounts: Created a test service account and its login key file. Key is kept private with cleanup steps noted below.
+- Least Privilege Principle: On purpose, gave the test account too much access, found the problem, then removed the extra access -- leaving only the minimum it actually needs.
+- Cloud Run Containers (notes): Wrote simple notes on how Cloud Run works -- containers, auto-scaling to zero, no servers to manage.
+- App Engine Managed Platform (notes): Compared App Engine's two modes (Standard vs Flexible) in a simple table.
+- Cloud Run vs App Engine (notes): Wrote simple guidance on when to pick each one.
+
+(all 6 tasks were completed)
+
+Links:
+- Test service account: <TEST_SA_NAME>@<PROJECT_ID>.iam.gserviceaccount.com
+- Key file: kept locally only, never committed (Day-*/secrets/ is in .gitignore)
+- Cleanup (run when done practicing, to remove this test credential):
+  gcloud iam service-accounts keys delete <KEY_ID> --iam-account=<TEST_SA_EMAIL>
+  gcloud iam service-accounts delete <TEST_SA_EMAIL>

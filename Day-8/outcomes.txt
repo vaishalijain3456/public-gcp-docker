@@ -1,0 +1,18 @@
+Day 8 -- Fragments, Pagination, Error Handling, Directives & Codegen
+
+Done:
+- Query Fragments: Created reusable pieces of a GraphQL query, so we don't repeat the same field lists everywhere.
+- Lazy Queries & Pagination: Added a "Load more" button that fetches posts page by page instead of all at once.
+- Error Handling Strategies: Added one central place that catches and logs every error from the app, on top of each part's own error message.
+- Variables & Directives: Added a checkbox that actually changes what data the app asks the server for (checked via network requests, not just the screen).
+- GraphQL Code Generator: Set up a tool that auto-generates ready-made typed code from our GraphQL queries.
+
+(all 5 tasks were completed)
+
+Links:
+- Fragments: mini-project-react/src/graphql/fragments.js
+- Pagination: graphql-server/server.js + mini-project-react/src/components/PaginatedPostsList.jsx
+- Error handling: mini-project-react/src/apolloClient.js
+- Directives: mini-project-react/src/components/UserDetailToggle.jsx
+- Codegen: mini-project-react/codegen.ts and mini-project-react/src/generated/graphql.ts
+- Live site: https://let-try-demo-gcp.web.app

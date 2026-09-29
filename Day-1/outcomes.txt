@@ -1,0 +1,13 @@
+Day 1 -- GCP Fundamentals
+
+Done:
+- Account & Billing Setup: Linked billing to the project and set up a budget alert (Rs.1) so we get notified about spending.
+- Firebase Static Hosting: Connected Firebase to the project and put a simple test page online.
+- Cloud Storage Fundamentals: Made a private storage bucket and uploaded a test file to it.
+
+All done
+
+Links:
+- Live site: https://let-try-demo-gcp.web.app
+- Firebase console: https://console.firebase.google.com/project/let-try-demo-gcp/overview
+- Storage bucket: gs://let-try-demo-gcp-bucket-1790067813

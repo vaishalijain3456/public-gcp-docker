@@ -1,0 +1,39 @@
+# Day 3 -- this file tells Cloud Build what to do every time we push
+# code to GitHub: build the app, upload it, then put it online.
+substitutions:
+  _REGION: asia-south1
+  _REPO: cloud-run-repo
+  _SERVICE: cloud-run-node-demo
+  _IMAGE: asia-south1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}
+
+steps:
+  # Day 3 -- Step 1: build the app's container image. (The app files live
+  # in node-server/ -- see Day 10 for why they moved into their own folder.)
+  - name: "gcr.io/cloud-builders/docker"
+    dir: "node-server"
+    args: ["build", "-t", "${_IMAGE}:${SHORT_SHA}", "-t", "${_IMAGE}:latest", "."]
+
+  # Day 3 -- Step 2: upload the image to Artifact Registry.
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "${_IMAGE}:${SHORT_SHA}"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "${_IMAGE}:latest"]
+
+  # Day 3 -- Step 3: put the new image online on Cloud Run.
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - "${_SERVICE}"
+      - "--image=${_IMAGE}:${SHORT_SHA}"
+      - "--region=${_REGION}"
+      - "--platform=managed"
+      - "--quiet"
+
+images:
+  - "${_IMAGE}:${SHORT_SHA}"
+  - "${_IMAGE}:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

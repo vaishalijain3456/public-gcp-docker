@@ -1,0 +1,40 @@
+Demo Links -- Day 1 to Day 13
+
+=== Local (run these yourself for the full working demo) ===
+React app:
+  cd mini-project-react && npm run dev
+  Then open: http://localhost:5173  (Vite may use 5174 etc. if 5173 is busy)
+  Shows: Home, CRUD, and External API pages -- routing, full CRUD,
+  real-time feed, pagination, directives, error boundary, code-split pages.
+
+GraphQL server (backend) / GraphiQL explorer:
+  cd graphql-server && npm run dev
+  Then open: http://localhost:4000/graphql
+  Run queries, mutations, and subscriptions directly here.
+
+Note: the local React app and local GraphQL server must both be running
+at the same time for CRUD/Home to work. The External API page does not
+need the local GraphQL server (it talks to a real public API instead).
+
+=== Live on the internet (already online, no setup needed) ===
+Firebase Hosting (React frontend):
+  https://let-try-demo-gcp.web.app
+  Routing, skeletons, error boundary, and External API all work here.
+  CRUD/Home's GraphQL sections show a friendly error here, since the
+  backend is not deployed online (local-only, by choice).
+
+Cloud Run (Day 1-4 Node/Express demo app):
+  https://cloud-run-node-demo-pqqyimqgtq-el.a.run.app
+
+=== GCP / Firebase consoles (to show the infra behind it) ===
+Firebase console:
+  https://console.firebase.google.com/project/let-try-demo-gcp/overview
+
+Monitoring dashboard (Day 4):
+  Console -> Monitoring -> Dashboards -> "Day4 - cloud-run-node-demo"
+
+Cloud Build history (Day 3/4 CI/CD):
+  Console -> Cloud Build -> History
+
+Artifact Registry (Day 3):
+  asia-south1-docker.pkg.dev/let-try-demo-gcp/cloud-run-repo

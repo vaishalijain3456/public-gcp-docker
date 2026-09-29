@@ -1,0 +1,14 @@
+Day 12 -- HTTPS Load Balancer, Managed SSL, Production CI/CD, Multi-Env
+
+Done:
+- Production CloudBuild YAML: Wrote a complete build file for the backend -- build the image, really test it, then push and deploy. Tested the build-and-test part on our computer and it worked. Not connected to any live pipeline yet.
+
+Not done:
+- HTTPS Load Balancer Setup: Skipped at your request. It costs money the whole time it exists, and there's no live backend yet to point it at.
+- Managed SSL Certificates: Skipped at your request. It needs the Load Balancer above, which was skipped.
+- Full CI/CD Pipeline Architecture: This is a diagram/write-up task, so it was skipped as requested.
+- Environment-Specific Deploys: Skipped at your request. Also, this repo only has one branch (main) so far -- staging/production branches would need to be decided first.
+
+Links:
+- Backend build file: graphql-server/cloudbuild.yaml
+- Backend Dockerfile: graphql-server/Dockerfile

@@ -1,0 +1,16 @@
+Day 7 -- Apollo Cache, Optimistic UI & Real-time Subscriptions
+
+Done:
+- Cache Updates after Mutations: When you add a post, the list now updates right away without asking the server again.
+- Optimistic UI Updates: The new post shows up on screen instantly, even before the server actually replies.
+- WebSockets & Subscriptions: The server can now push live updates to the app over a WebSocket connection.
+- Real-time Feed Hands-on: Built a live feed that shows new posts the second they're created. Tested with two browser windows at once -- a post made in one window showed up instantly in the other.
+
+Not done:
+- InMemoryCache Deep Dive: Write-up task (cache inspection notes), not requested.
+
+Links:
+- GraphQL server (with subscriptions): graphql-server/server.js
+- Apollo real-time link: mini-project-react/src/apolloClient.js
+- Real-time feed component: mini-project-react/src/components/RealtimeFeed.jsx
+- Live site (real-time feed shows a friendly error there, no server online): https://let-try-demo-gcp.web.app

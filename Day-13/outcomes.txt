@@ -1,0 +1,11 @@
+Day 13 -- Cloud CDN, Caching, Code Splitting, Lighthouse, Mini Project Deployment
+
+Done:
+- React Code Splitting & Lazy Loading: Changed the app so each page (Home, CRUD, External API) loads its own code only when you actually visit that page, instead of loading everything at once. Tested with a real build and confirmed each page's file loads correctly.
+
+Not done:
+- Mini Project Deployment (load balancing + CDN): Needs a Load Balancer, which always costs money the whole time it exists -- so this was skipped, as you asked us to only do it if it's free.
+- Cloud CDN Integration, Caching Strategies, Lighthouse Audits: Not requested in this round.
+
+Links:
+- Code splitting: mini-project-react/src/App.jsx

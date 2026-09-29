@@ -1,0 +1,24 @@
+# Day 4 -- this file tells Cloud Build what to do every time we push
+# React app changes to GitHub: install, build, then put it online on
+# Firebase Hosting.
+steps:
+  # Day 4 -- Step 1: install the app's packages.
+  - name: "node:24-alpine"
+    dir: "mini-project-react"
+    entrypoint: npm
+    args: ["ci"]
+
+  # Day 4 -- Step 2: build the app into plain HTML/CSS/JS files.
+  - name: "node:24-alpine"
+    dir: "mini-project-react"
+    entrypoint: npm
+    args: ["run", "build"]
+
+  # Day 4 -- Step 3: upload those files to Firebase Hosting.
+  - name: "node:24-alpine"
+    dir: "mini-project-react"
+    entrypoint: npx
+    args: ["firebase-tools@latest", "deploy", "--only", "hosting", "--project", "let-try-demo-gcp", "--non-interactive"]
+
+options:
+  logging: CLOUD_LOGGING_ONLY

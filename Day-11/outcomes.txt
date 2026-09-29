@@ -1,0 +1,14 @@
+Day 11 -- Cloud Run Deploys: Frontend, Backend, Env Config, Custom Domain
+
+Done (partly -- the prep work, not the actual online deploy):
+- Backend Cloud Run Deploy (prep only): Packaged the GraphQL server into a Docker container and tested it works correctly. Did NOT put it online yet -- that costs money and needs your approval.
+- Environment Variables Config (prep only): Changed the backend code so it reads its settings (like which websites are allowed to call it) from environment variables instead of having them fixed in the code. Tested this works on our computer. The frontend already worked this way since Day 6.
+
+Not done:
+- Frontend Cloud Run Deploy: Putting the app online on Cloud Run costs money, and also needs Day 10's Artifact Registry step first (also on hold).
+- Custom Domain Setup: Needs a paid Load Balancer, plus a real domain name and DNS access from you.
+
+Links:
+- Backend Dockerfile: graphql-server/Dockerfile
+- Backend settings code: graphql-server/server.js
+- Frontend settings code (already done, Day 6): mini-project-react/src/apolloClient.js

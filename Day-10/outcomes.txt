@@ -1,0 +1,16 @@
+Day 10 -- Introduction to Docker: Dockerizing the React Mini Project
+
+Done:
+- Introduction to Docker: Checked that Docker is installed and working on this computer.
+- Dockerfile for React: Wrote a Docker recipe (Dockerfile) that builds the React app and serves it using Nginx.
+- Local Container Build & Run: Built and ran the app in Docker on this computer, and it worked correctly (including page refresh on sub-pages like /crud).
+- Multi-Stage Builds: Made sure the final image is small (74.3 MB) by only keeping the finished files, not the build tools used to make them.
+- Extra (not originally asked, done as a follow-up): Moved the plain Node server files (server.js, its Dockerfile) into their own node-server/ folder to keep the project tidy, without breaking the live pipeline.
+
+Not done:
+- Artifact Registry Push: Uploading the image to Google Cloud costs a small amount of money, so this is on hold until you approve it.
+
+Links:
+- React Dockerfile: mini-project-react/Dockerfile
+- Nginx config: mini-project-react/nginx.conf
+- Node server (moved here): node-server/

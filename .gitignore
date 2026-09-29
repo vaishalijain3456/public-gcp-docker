@@ -1,0 +1,8 @@
+node_modules/
+
+# Service account keys and other secrets under any Day-* folder
+Day-*/secrets/
+
+# Local Claude Code tool state
+.claude/
+demo-script-one-on-one.txt

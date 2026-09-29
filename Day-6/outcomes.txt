@@ -1,0 +1,17 @@
+Day 6 -- Apollo Client + React
+
+Done:
+- Apollo Client Installation: Added Apollo Client to the React app and pointed it at a small local GraphQL server we built just for testing (graphql-server/, runs on your computer only).
+- React Provider Integration: Connected Apollo Client to the whole app so any part of it can use it.
+- useQuery Hook: Built components that fetch and show Users and Posts from the server.
+- useMutation Hook: Built a form to create a new post, which updates the list right after saving.
+- Loading & Error States: All these parts show "Loading..." while fetching, and a clear message if something goes wrong.
+
+(all 5 tasks were completed)
+
+Note: The GraphQL server only runs on your own computer, not online. On the live website, the Users/Posts sections will show a friendly "Error loading..." message instead of a crash, because there's no server there. To see it fully working, run both graphql-server and mini-project-react locally (npm run dev in each).
+
+Links:
+- Local GraphQL server: graphql-server/ (npm run dev, port 4000)
+- React app: mini-project-react/ (npm run dev, port 5173)
+- Live site (partial -- shows friendly errors here): https://let-try-demo-gcp.web.app

@@ -1,0 +1,16 @@
+Day 9 -- Mini Project: App Architecture, Full CRUD, External API, Resilience
+
+Done:
+- App Architecture & Setup: Added page navigation (Home / CRUD / External API) using React Router.
+- Full CRUD Features: Added the ability to Create, Read, Update, and Delete posts, all working end to end.
+- External API Integration: Connected a page to a real public GraphQL API on the internet (the Countries API), separate from our own server.
+- Error Boundaries & Skeletons: If a page crashes, it now shows a friendly "Something went wrong" message instead of breaking the whole app, and pages show a loading placeholder while data loads.
+
+(all 4 tasks were completed)
+
+Links:
+- Routing/navigation: mini-project-react/src/App.jsx, mini-project-react/src/components/Layout.jsx
+- CRUD page: mini-project-react/src/pages/CrudPage.jsx
+- External API page: mini-project-react/src/pages/ExternalApiPage.jsx
+- Error boundary/skeletons: mini-project-react/src/components/ErrorBoundary.jsx, Skeleton.jsx
+- Live site: https://let-try-demo-gcp.web.app

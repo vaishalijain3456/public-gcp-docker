@@ -1,0 +1,16 @@
+Day 4 -- Logging, Monitoring, Secrets & Mini Project
+
+Done:
+- Cloud Logging: Sent test traffic to the app and checked the logs -- errors (404s) showed up correctly, and we saved a search filter for them.
+- Cloud Monitoring Dashboards: Built a dashboard showing CPU usage and error rate for the app.
+- Secret Manager: Stored a secret value safely and only allowed our app's own account to read it.
+- Environment Variables: Connected that secret to the running app as an environment variable, and confirmed it's really there.
+- Mini Project Execution: Built a small React app, connected it to Firebase Hosting, and set up auto-deploy on every push. Confirmed the live site really updated with our changes.
+
+(all 5 tasks were completed)
+
+Links:
+- Live React app: https://let-try-demo-gcp.web.app
+- Cloud Run service: cloud-run-node-demo (asia-south1)
+- Secret: stored in Secret Manager (name kept private)
+- Monitoring dashboard: Cloud Console > Monitoring > Dashboards

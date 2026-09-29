@@ -1,0 +1,11 @@
+Day 5 -- GraphQL Fundamentals
+
+Done:
+- Schema Definition Language: Wrote a GraphQL schema file (User and Post types, plus a Query type) and checked with a real tool that it is valid.
+
+Not done:
+- GraphQL vs REST: Write-up task, not requested.
+- Core GraphQL Concepts: Write-up/diagram task, not requested.
+
+Links:
+- Schema file: Day-5/schema.graphql
